@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from './components/NewExpense/NewExpense';
 
 /**
  * We can pass data to other components by adding custom
@@ -34,8 +36,12 @@ const App = () => {
     },
   ];
 
-  // React under the hood implementation
+  const addExpenseHandler = (expenses) => {
+    console.log("In App.js");
+    console.log(expenses);
+  };
 
+  // ----React under the hood implementation----
   // return React.createElement(
   //   'div',
   //   {},
@@ -45,7 +51,7 @@ const App = () => {
 
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
